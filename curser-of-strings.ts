@@ -3,6 +3,7 @@
  */
 
 // Usage: deno run curser-of-strings.ts <string_to_be_cursed:string> <number_of_iterations:number>
+// Note: do not use large numbers and large strings. Well you can but it will take some time because performance of this is complete utter shit
 
 import { DOMParser } from 'https://deno.land/x/deno_dom/deno-dom-wasm.ts';
 import { assert } from 'https://deno.land/std@0.157.0/testing/asserts.ts';
@@ -11,6 +12,7 @@ const curseString = (s: string) => {
     const getPainList = () => {
         const a: string[] = [];
 
+        // range of diacritic characters that will stack on top of each other like there is no tomorrow
         for (let i = 768; i < 879; i++) {
             a.push('&#' + i + ';');
         }
